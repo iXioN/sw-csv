@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}
+Collection from {{collection.fetching_date|date:"SHORT_DATETIME_FORMAT"}}
+{% endblock %}
+
+{% block content %}
+    <h2><a href="{% url 'collection_download' collection.id %}">{{collection.file_name}}</a></h2>
+    {{html_table|safe}}
+    <a class="btn btn-primary" href="{% url 'collection' collection.id %}?limit={{next_limit}}">Load more</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Star Wars Explorer
+{% endblock %}
+
+{% block content %}
+    <h3>Collections <a class="btn btn-success" href="{% url 'fetch' %}" role="button">Fetch</a></h3>
+    <div class="list-group">
+        {% for collection in collections %}
+        <a class="list-group-item list-group-item-action" href="{% url 'collection' collection.id %}">{{collection.fetching_date|date:"SHORT_DATETIME_FORMAT"}}</a>
+        {% endfor %}
+    </div>
+{% endblock %}
